@@ -1,0 +1,67 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- <div class="border-bottom">
+  <div class="float-left">
+    <ul class="menu">
+      <li class="menu"><a href="./home">Home</a></li>
+      <%  if (typeof(cats) !== 'undefined') { for (var cat of cats) { %>
+      <li class="menu"><a href="./listproduct?catID=<%=cat._id%>"><%=cat.name%></a></li>
+      <%  } } %>
+    </ul>
+  </div>
+  <div class="float-right">
+    <form action="./search" method="POST" class="search">
+      <input type="search" name="txtKeyword" placeholder="Enter keyword" class="keyword" required
+        oninvalid="this.setCustomValidity('Keyword không để trống')"
+        oninput="this.setCustomValidity('')" />
+      <input type="submit" value="SEARCH" />
+    </form>
+  </div>
+  <div class="float-clear"></div>
+</div> -->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container"> 
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigation">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="./home"><img src="./logo.png" class="img" alt="logo" ></a>
+    </div>
+    <div class="collapse navbar-collapse" id="navigation">
+      <ul class="nav navbar-nav navbar-left">
+          <li>
+            <%  if (session.customer) {  %>
+              Hello <b><%=session.customer.name%></b></li> 
+              <li><a href="./logout">Logout</a></li> 
+              <li><a href="./myprofile">My profile</a></li> 
+              <li><a href="./myorders">My orders</a></li>
+              <li><a href="./mycart">My cart</a></li>
+                <div class="text-right"><strong>have <b><%= (session.mycart) ? session.mycart.length : 0 %>items</b></strong></div> </li>
+              <%  } else {  %>
+              <li><a href="./login">Login</a></li>
+              <li><a href="./signup">Sign-up</a></li>
+              <%  } %>
+          </li>
+      </ul>
+      <form action="./search" method="POST" class="navbar-form navbar-right">
+        <div class="form-group">
+          <input type="search" name="txtKeyword" placeholder="Enter keyword"  class="form-control"required
+          oninvalid="this.setCustomValidity('keyword may not be blank')"
+          oninput="this.setCustomValidity('')" />
+        </div>
+          <button type="submit" class="btn btn-success">Search</button>
+        </form>
+      </div>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+       
+      </ul>
+    </div>
+  </div>
+</nav> 
